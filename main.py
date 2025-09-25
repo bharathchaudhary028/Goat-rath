@@ -1,40 +1,5 @@
-#!/usr/bin/env python3
-"""
-main.py — HOMIES WWE BOT (final corrected)
-Requirements:
-  - python-telegram-bot >= 20
-  - Pillow (optional) for images
-Env:
-  - TELEGRAM_BOT_TOKEN (required)
-  - PERSISTENT_DIR (optional)
-"""
-import os
-import json
-import logging
-import random
-import io
-import asyncio
-from typing import Dict, List, Tuple
-
-from telegram import InlineKeyboardButton, InlineKeyboardMarkup, Update, InputFile
-from telegram.error import TimedOut, TelegramError
-from telegram.ext import (
-    ApplicationBuilder, CommandHandler, CallbackQueryHandler, MessageHandler,
-    ContextTypes, filters
-)
-
-# Optional Pillow support
-try:
-    from PIL import Image, ImageDraw, ImageFont
-    PIL_AVAILABLE = True
-except Exception:
-    PIL_AVAILABLE = False
-
-# ---------------- CONFIG ----------------
-BOT_TOKEN = os.getenv("TELEGRAM_BOT_TOKEN", "")
-PERSISTENT_DIR = os.getenv("PERSISTENT_DIR", "")
-if PERSISTENT_DIR:
-    os.makedirs(PERSISTENT_DIR, exist_ok=True)
+python-telegram-bot>=20.0
+Pillow    os.makedirs(PERSISTENT_DIR, exist_ok=True)
 STATS_FILE = os.path.join(PERSISTENT_DIR, "user_stats.json") if PERSISTENT_DIR else "user_stats.json"
 PARSE_MODE = "HTML"
 
